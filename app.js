@@ -1,20 +1,26 @@
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const express = require('express')
+const path = require('path')
+const cookieParser = require('cookie-parser')
+const logger = require('morgan')
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+//set express framework to app variable
+const app = express()
 
-var app = express();
+//get shoefits router from routes folder
+const sheofitsroutes = require('./routes/shoefits')
 
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(logger('dev'))
+app.use(express.json())
+app.use(express.urlencoded({extended: true}))
+app.use(cookieParser())
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+//send requests from path /api/v1/shoefits to shoefits router
+app.use('/api/v1/shoefits', sheofitsroutes)
 
-module.exports = app;
+app.use(function (err, req, res, next) {
+    res.status(err.status || 500)
+    res.json(err.message)
+})
+
+module.exports = app
+ 
