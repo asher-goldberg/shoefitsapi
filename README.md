@@ -15,8 +15,8 @@ The easiest way to install this app is by building Docker containers off of the 
 
 ### API Endpoints
 There are three endpoints available via this service
-- `GET /api/v1/shoefits/{shoeId}` - returns all of the fit values entered for a specific shoeId (limited between 1 and 3 in this example data)
-- `GET /api/v1/shoefits/value/{shoeId}` - returns the average fit value for a specific shoeId (limited between 1 and 3 in this example data)
+- `GET /api/v1/shoefits/{shoeId}` - returns all of the fit values entered for a specific shoe ID
+- `GET /api/v1/shoefits/TrueToSizeCalculation/{shoeId}` - returns the average fit value for a specific shoe ID
 - `POST /api/v1/shoefits/{shoeId}` - adds a new fit value by shoe ID (limited between 1 and 3 in this example data).  fitValue parameter must be present in POST request body and must be a number between 1 and 5.
 
 **Note:** Shoe ID is always required in API calls and must be numeric.  For the included sample data shoe ID can be between 1 and 3.
