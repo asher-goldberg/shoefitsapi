@@ -5,21 +5,27 @@ services:
     build: .
     command: "npm run db && npm run dev"
     volumes:
-      - .:/usr/app/
-      - /usr/app/node_modules
+      .:/usr/app/
+       /usr/app/node_modules
     ports:
-      - 3000:3000
+      3000:3000
     depends_on:
-      - postgres
+      postgres:
+        condition: service_healthy 
     environment:
       DATABASE_URL: postgres://postgres:postgres@postgres/shoefitdb
       NODE_ENV: development
 
   postgres:
     ports: 
-      - 5432:5432
+      5432:5432
     image: postgres:9.6-alpine
     environment:
       POSTGRES_PASSWORD: postgres
       POSTGRES_USERNAME: postgres
       POSTGRES_DB: shoefitdb
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-q", "-d", "${DB_NAME}", "-U", "${DB_USER}" ]
+          timeout: 45s
+          interval: 10s
+          retries: 10
