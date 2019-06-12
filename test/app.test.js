@@ -28,7 +28,7 @@ describe('Shoe Fit Tests', () => {
 
     it('return data single shoe average fit when shoeID = 1', (done) => {
         request(app)
-        .get('/api/v1/shoefits/value/1')
+        .get('/api/v1/shoefits/TrueToSizeCalculation/1')
         .set('Accept', 'application/json')
         .expect('Content-Type', /json/)
         .expect(200, done)
