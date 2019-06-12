@@ -3,11 +3,11 @@
 module.exports = {
   development: {
     client: 'pg',
-    connection: 'postgres://postgres:2737fitch@localhost/shoefitdb'
+    connection: process.env.DATABASE_URL
   },
   test: {
     client: 'pg',
-    connection: 'postgres://postgres:2737fitch@localhost/test-shoefitdb',
+    connection: 'postgres://postgres:postgres@localhost/test-shoefitdb',
     migrations: {
       directory : 'db/migrations'
     },

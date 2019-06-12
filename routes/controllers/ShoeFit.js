@@ -16,7 +16,7 @@ module.exports.getShoeFitAverage = async (req, res, next) => {
     .then(shoefits => {
         res.json({shoeId: req.params.id, 
             averageFitValue: Math.round(shoefits[0].avg*100)/100, 
-            sampleSize: shoefits[0].count})
+            countValues: shoefits[0].count})
     })
 }
 
