@@ -15,7 +15,7 @@ module.exports.getShoeFitAverage = async (req, res, next) => {
     .where('shoeId', req.params.id)
     .then(shoefits => {
         res.json({shoeId: req.params.id, 
-            averageFitValue: Math.round(shoefits[0].avg*100)/100, 
+            TrueToSizeCalculation: Math.round(shoefits[0].avg*100)/100, 
             countValues: shoefits[0].count})
     })
 }

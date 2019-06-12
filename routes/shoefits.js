@@ -12,7 +12,7 @@ const ShoeFitsMiddleware = require('./middleware/ShoeFit');
 router.get('/:id', [ShoeFitsMiddleware.validShoeID], ShoeFitsController.getShoeFits)
 
 //route to get average of shoe fits for a given shoe ID
-router.get('/value/:id', [ShoeFitsMiddleware.validShoeID], ShoeFitsController.getShoeFitAverage)
+router.get('/TrueToSizeCalculation/:id', [ShoeFitsMiddleware.validShoeID], ShoeFitsController.getShoeFitAverage)
 
 //route to add a new shoe fit by shoe ID
 router.post('/:id', [ShoeFitsMiddleware.validShoeID, ShoeFitsMiddleware.validFitValue], ShoeFitsController.addShoeFit)
