@@ -9,6 +9,8 @@ const app = express()
 //get shoefits router from routes folder
 const sheofitsroutes = require('./routes/shoefits')
 
+console.log(process.env.DATABASE_URL)
+
 app.use(logger('dev'))
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))

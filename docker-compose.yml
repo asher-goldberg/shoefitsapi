@@ -12,7 +12,7 @@ services:
     depends_on:
       - postgres
     environment:
-      DATABASE_URL: postgres://postgres:postgres@192.168.99.100:5432/shoefitdb
+      DATABASE_URL: postgres://postgres:postgres@postgres/shoefitdb
       NODE_ENV: development
 
   postgres:
