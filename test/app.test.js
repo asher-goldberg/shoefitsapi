@@ -9,14 +9,14 @@ const app = require('../app')
 
 
 describe('Shoe Fit Tests', () => {
-    before((done) => {
+    /*before((done) => {
         //run migrations to recreate table from scratch
         knex.migrate.latest()
             .then(() => {
                 //run seeds to fill with sample data
                 return knex.seed.run()
             }).then(() => done())
-    })
+    })*/
 
     it('Lists shoefits for shoeID = 1', (done) => {
         request(app)

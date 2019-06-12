@@ -18,5 +18,8 @@ There are three endpoints available via this service
 - `GET /api/v1/shoefits/{shoeId}` - returns all of the fit values entered for a specific shoeId (limited between 1 and 3 in this example data)
 - `GET /api/v1/shoefits/value/{shoeId}` - returns the average fit value for a specific shoeId (limited between 1 and 3 in this example data)
 - `POST /api/v1/shoefits/{shoeId}` - adds a new fit value by shoe ID (limited between 1 and 3 in this example data).  fitValue parameter must be present in POST request body and must be a number between 1 and 5.
+**Note:** Shoe ID is always required in API calls and must be numeric.  For the included sample data shoe ID can be between 1 and 3.
 
-**note:** Shoe ID is always required in API calls and must be numeric.  For the included sample data shoe ID can be between 1 and 3.
+
+### Testing with Mocha
+There are included unit tests powered by Mocha and Supertest that will be run automatically when the Docker container is started and after the knex migrations are run.  See `./test/app.test.js` for more information.

@@ -12,7 +12,7 @@ services:
       postgres:
         condition: service_healthy 
     environment:
-      DATABASE_URL: postgres://postgres:postgres@postgres/shoefitdb
+      DATABASE_URL: postgres://postgres:postgres@postgres
       NODE_ENV: development
 
   postgres:
